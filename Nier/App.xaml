@@ -1,0 +1,19 @@
+﻿<Application x:Class="Nier.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Nier"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <Color x:Key="color0">#D1CDB7</Color>
+        <Color x:Key="color1">#CCC8B1</Color>
+        <Color x:Key="color2">#BAB5A1</Color>
+        <Color x:Key="color3">#A09D96</Color>
+        <Color x:Key="color4">#454138</Color>
+        <SolidColorBrush x:Key="Brush0" Color="{StaticResource color0}" />
+        <SolidColorBrush x:Key="Brush1" Color="{StaticResource color1}" />
+        <SolidColorBrush x:Key="Brush2" Color="{StaticResource color2}" />
+        <SolidColorBrush x:Key="Brush3" Color="{StaticResource color3}" />
+        <SolidColorBrush x:Key="Brush4" Color="{StaticResource color4}" />
+    </Application.Resources>
+</Application>

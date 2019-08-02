@@ -1,0 +1,804 @@
+﻿<Window x:Class="Nier.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nier"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="850" Width="1500" Background="{DynamicResource bg1}">
+    <Window.Resources>
+
+        <DrawingBrush x:Key="bg0" Stretch="None" TileMode="Tile" 
+                  Viewport="0,0,5,5" ViewportUnits="Absolute">
+            <DrawingBrush.Drawing>
+                <GeometryDrawing Brush="{DynamicResource Brush0}">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="0,0 5,5" />
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                    <GeometryDrawing.Pen>
+                        <Pen Thickness="0.1" Brush="{DynamicResource Brush2}" />
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource Brush4}" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <DrawingBrush x:Key="bg1" Stretch="None" TileMode="Tile" 
+                  Viewport="0,0,5,5" ViewportUnits="Absolute">
+            <DrawingBrush.Drawing>
+                <GeometryDrawing Brush="{DynamicResource Brush1}">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="0,0 5,5" />
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                    <GeometryDrawing.Pen>
+                        <Pen Thickness="0.1" Brush="{DynamicResource Brush2}" />
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+
+        <Style TargetType="{x:Type GroupBox}">
+            <Setter Property="Background" Value="{DynamicResource bg0}" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Foreground" Value="{DynamicResource Brush0}" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GroupBox}">
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                            <Grid SnapsToDevicePixels="true">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Border Background="{DynamicResource Brush4}" Padding="10,5">
+                                    <ContentPresenter ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                                <Border Grid.Row="1" Padding="10,5">
+                                    <ContentPresenter TextElement.Foreground="{DynamicResource Brush4}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="ButtonFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border BorderThickness="0,2" BorderBrush="{DynamicResource Brush4}">
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush4}"/>
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="BorderThickness" Value="0,2"/>
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="{StaticResource color2}" Opacity="0.7" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <Border x:Name="contentBorder" Margin="0,5" Background="{TemplateBinding Background}">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Foreground" Value="{DynamicResource Brush0}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="BorderBrush" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush2}" />
+                                <Setter Property="Foreground" Value="{DynamicResource Brush4}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource Brush3}" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="true">
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush4}"/>
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="BorderThickness" Value="0,2"/>
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="Margin" Value="20,5,0,5"/>
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <Border x:Name="contentBorder" Margin="0,5">
+                                <Border.Background>
+                                    <SolidColorBrush Color="{StaticResource color2}" Opacity="0.7" />
+                                </Border.Background>
+                                <ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                <!--<ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>-->
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="BorderBrush" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Foreground" Value="{DynamicResource Brush0}" />
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                </MultiDataTrigger.Conditions>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                </MultiDataTrigger.Conditions>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                </MultiDataTrigger.Conditions>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                </MultiDataTrigger.Conditions>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                </MultiDataTrigger.Conditions>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Foreground" Value="{DynamicResource Brush0}" />
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                </MultiDataTrigger.Conditions>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Panel.ZIndex" Value="1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                </MultiDataTrigger.Conditions>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Panel.ZIndex" Value="1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                </MultiDataTrigger.Conditions>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                                <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Foreground" Value="{DynamicResource Brush0}" />
+                                <Setter Property="Margin" TargetName="contentBorder" Value="0,5,0,0" />
+                            </MultiDataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TabControl}">
+            <Setter Property="Margin" Value="0,0"/>
+            <Setter Property="Padding" Value="50,0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid x:Name="templateRoot" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="ColumnDefinition0"/>
+                                <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>
+                                <ColumnDefinition x:Name="ColumnDefinition2" Width="0"/>
+                                <ColumnDefinition x:Name="ColumnDefinition3" Width="0"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
+                                <RowDefinition x:Name="RowDefinition1" Height="Auto"/>
+                                <RowDefinition x:Name="RowDefinition2" Height="*"/>
+                                <RowDefinition x:Name="RowDefinition3" Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel x:Name="headerPanel" Orientation="Horizontal" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
+                                <Border BorderThickness="10,0,0,0" BorderBrush="{DynamicResource Brush2}" Margin="0,7" />
+                                <Border BorderThickness="5,0,0,0" BorderBrush="{DynamicResource Brush2}" Margin="5,7,0,7" />
+                                <ItemsPresenter x:Name="inHeaderPanel" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1" />
+                            </StackPanel>
+                            <DockPanel Grid.Row="1" x:Name="borderFirstHorizol">
+                                <DockPanel.RenderTransform>
+                                    <RotateTransform x:Name="rotateFirst" Angle="0" />
+                                </DockPanel.RenderTransform>
+                                <Grid>
+                                    <Line X1="0" X2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
+                                    <Line X1="46" X2="50" Y1="2" Y2="2" StrokeThickness="4" Stroke="{DynamicResource Brush4}" />
+                                </Grid>
+                                <Line DockPanel.Dock="Right" X1="0" X2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
+                                <Border BorderThickness="0" Margin="0,-1" Height="30">
+                                    <Border.Background>
+                                        <DrawingBrush TileMode="Tile" Stretch="None" ViewportUnits="Absolute" Viewport="0,0 80,30">
+                                            <DrawingBrush.Drawing>
+                                                <DrawingGroup>
+                                                    <GeometryDrawing Brush="Transparent">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry Rect="0,0 80,30" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry Rect="0,0 80,2" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry Rect="0,0 4,5" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry Rect="76,0 4,5" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <EllipseGeometry Center="35,10" RadiusX="3" RadiusY="3" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <EllipseGeometry Center="41,20" RadiusX="3" RadiusY="3" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <EllipseGeometry Center="46,10" RadiusX="3" RadiusY="3" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup>
+                                            </DrawingBrush.Drawing>
+                                        </DrawingBrush>
+                                    </Border.Background>
+                                </Border>
+                            </DockPanel>
+                            <DockPanel Grid.Column="1" x:Name="borderFirstVertical">
+                                <Grid DockPanel.Dock="Top">
+                                    <Line Y1="0" Y2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
+                                    <Line Y1="46" Y2="50" X1="2" X2="2" StrokeThickness="4" Stroke="{DynamicResource Brush4}" />
+                                </Grid>
+                                <Line DockPanel.Dock="Bottom" Y1="0" Y2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
+                                <Border BorderThickness="0" Margin="-1,0" Width="30" DockPanel.Dock="Top">
+                                    <Border.Background>
+                                        <DrawingBrush TileMode="Tile" Stretch="None" ViewportUnits="Absolute" Viewport="0,0 30,80">
+                                            <DrawingBrush.Drawing>
+                                                <DrawingGroup>
+                                                    <GeometryDrawing Brush="Transparent">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry Rect="0,0 30,80" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry Rect="0,0 2,80" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry Rect="0,0 5,4" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <RectangleGeometry Rect="0,76 5,4" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <EllipseGeometry Center="10,35" RadiusX="3" RadiusY="3" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <EllipseGeometry Center="20,41" RadiusX="3" RadiusY="3" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <EllipseGeometry Center="10,46" RadiusX="3" RadiusY="3" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup>
+                                            </DrawingBrush.Drawing>
+                                        </DrawingBrush>
+                                    </Border.Background>
+                                </Border>
+                            </DockPanel>
+                            <Border x:Name="contentPanel" Grid.Row="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
+                                <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                            <Rectangle x:Name="borderLastHorizol" Grid.Row="3" Height="30">
+                                <Rectangle.Fill>
+                                    <VisualBrush Visual="{Binding ElementName=borderFirstHorizol}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle x:Name="borderLastVertical" Grid.Row="3" Width="30">
+                                <Rectangle.Fill>
+                                    <VisualBrush Visual="{Binding ElementName=borderFirstVertical}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="TabStripPlacement" Value="Bottom">
+                                <Setter Property="Grid.Row" TargetName="borderFirstHorizol" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="contentPanel" Value="1"/>
+                                <Setter Property="Grid.Row" TargetName="borderLastHorizol" Value="2"/>
+                                <Setter Property="Grid.Row" TargetName="borderLastVertical" Value="2"/>
+                                <Setter Property="Grid.Row" TargetName="headerPanel" Value="3"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="Auto"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition2" Value="Auto"/>
+                                <Setter Property="Height" TargetName="RowDefinition3" Value="Auto"/>
+                                <Setter Property="Visibility" TargetName="borderFirstHorizol" Value="Visible"/>
+                                <Setter Property="Visibility" TargetName="borderFirstVertical" Value="Collapsed"/>
+                                <Setter Property="Visibility" TargetName="borderLastHorizol" Value="Visible"/>
+                                <Setter Property="Visibility" TargetName="borderLastVertical" Value="Collapsed"/>
+                                <Setter Property="Grid.Row" TargetName="inHeaderPanel" Value="3"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Left">
+                                <Setter Property="Grid.Row" TargetName="borderFirstHorizol" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="borderFirstVertical" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="borderLastHorizol" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="borderLastVertical" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="headerPanel" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="headerPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="borderFirstHorizol" Value="1"/>
+                                <Setter Property="Grid.Column" TargetName="borderFirstVertical" Value="1"/>
+                                <Setter Property="Grid.Column" TargetName="contentPanel" Value="2"/>
+                                <Setter Property="Grid.Column" TargetName="borderLastHorizol" Value="3"/>
+                                <Setter Property="Grid.Column" TargetName="borderLastVertical" Value="3"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition0" Value="Auto"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition1" Value="Auto"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition2" Value="*"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition3" Value="Auto"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                                <Setter Property="Height" TargetName="RowDefinition2" Value="0"/>
+                                <Setter Property="Height" TargetName="RowDefinition3" Value="0"/>
+                                <Setter Property="Visibility" TargetName="borderFirstHorizol" Value="Collapsed"/>
+                                <Setter Property="Visibility" TargetName="borderFirstVertical" Value="Visible"/>
+                                <Setter Property="Visibility" TargetName="borderLastHorizol" Value="Collapsed"/>
+                                <Setter Property="Visibility" TargetName="borderLastVertical" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Right">
+                                <Setter Property="Grid.Row" TargetName="borderFirstHorizol" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="borderFirstVertical" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="borderLastHorizol" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="borderLastVertical" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="headerPanel" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="headerPanel" Value="3"/>
+                                <Setter Property="Grid.Column" TargetName="borderFirstHorizol" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="borderFirstVertical" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="contentPanel" Value="1"/>
+                                <Setter Property="Grid.Column" TargetName="borderLastHorizol" Value="2"/>
+                                <Setter Property="Grid.Column" TargetName="borderLastVertical" Value="2"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition0" Value="Auto"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition1" Value="*"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition2" Value="Auto"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition3" Value="Auto"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                                <Setter Property="Height" TargetName="RowDefinition2" Value="0"/>
+                                <Setter Property="Height" TargetName="RowDefinition3" Value="0"/>
+                                <Setter Property="Visibility" TargetName="borderFirstHorizol" Value="Collapsed"/>
+                                <Setter Property="Visibility" TargetName="borderFirstVertical" Value="Visible"/>
+                                <Setter Property="Visibility" TargetName="borderLastHorizol" Value="Collapsed"/>
+                                <Setter Property="Visibility" TargetName="borderLastVertical" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="TextElement.Foreground" TargetName="templateRoot" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TabControlStyle1" TargetType="{x:Type TabControl}">
+            <Setter Property="Margin" Value="20,0"/>
+            <Setter Property="Padding" Value="0,0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid x:Name="templateRoot" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="ColumnDefinition0"/>
+                                <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>
+                                <ColumnDefinition x:Name="ColumnDefinition2" Width="0"/>
+                                <ColumnDefinition x:Name="ColumnDefinition3" Width="0"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
+                                <RowDefinition x:Name="RowDefinition1" Height="Auto"/>
+                                <RowDefinition x:Name="RowDefinition2" Height="*"/>
+                                <RowDefinition x:Name="RowDefinition3" Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel x:Name="headerPanel" Orientation="Horizontal" Margin="{TemplateBinding Padding}" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">
+                                <Border BorderThickness="10,0,0,0" BorderBrush="{DynamicResource Brush2}" Margin="0,7" />
+                                <Border BorderThickness="5,0,0,0" BorderBrush="{DynamicResource Brush2}" Margin="5,7,0,7" />
+                                <ItemsPresenter x:Name="inHeaderPanel" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1" />
+                            </StackPanel>
+                            <Border x:Name="contentPanel" Grid.Row="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
+                                <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="TabStripPlacement" Value="Bottom">
+                                <Setter Property="Grid.Row" TargetName="contentPanel" Value="1"/>
+                                <Setter Property="Grid.Row" TargetName="headerPanel" Value="3"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="Auto"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition2" Value="Auto"/>
+                                <Setter Property="Height" TargetName="RowDefinition3" Value="Auto"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Left">
+                                <Setter Property="Grid.Row" TargetName="headerPanel" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="headerPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="contentPanel" Value="2"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition0" Value="Auto"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition1" Value="Auto"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition2" Value="*"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition3" Value="Auto"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                                <Setter Property="Height" TargetName="RowDefinition2" Value="0"/>
+                                <Setter Property="Height" TargetName="RowDefinition3" Value="0"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Right">
+                                <Setter Property="Grid.Row" TargetName="headerPanel" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="headerPanel" Value="3"/>
+                                <Setter Property="Grid.Column" TargetName="contentPanel" Value="1"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition0" Value="Auto"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition1" Value="*"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition2" Value="Auto"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition3" Value="Auto"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                                <Setter Property="Height" TargetName="RowDefinition2" Value="0"/>
+                                <Setter Property="Height" TargetName="RowDefinition3" Value="0"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="TextElement.Foreground" TargetName="templateRoot" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Brush4}"/>
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="BorderThickness" Value="0,2"/>
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
+                            <Border x:Name="contentBorder" Margin="0,5">
+                                <Border.Background>
+                                    <SolidColorBrush Color="{StaticResource color2}" Opacity="0.7" />
+                                </Border.Background>
+                            </Border>
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasContent" Value="true">
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Foreground" Value="{DynamicResource Brush0}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource Brush3}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="BorderBrush" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush2}" />
+                                <Setter Property="Foreground" Value="{DynamicResource Brush4}" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter Property="BorderBrush" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush2}" />
+                                <Setter Property="Foreground" Value="{DynamicResource Brush4}" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter Property="BorderBrush" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush4}" />
+                                <Setter Property="Foreground" Value="{DynamicResource Brush0}" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="{x:Null}">
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TextBlockTitle1" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="{DynamicResource Brush4}" />
+            <Setter Property="FontSize" Value="40" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="0" Color="{DynamicResource color1}" ShadowDepth="8" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Border Padding="0,20">
+        <TabControl Background="Transparent" TabStripPlacement="Top">
+            <TabControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </TabControl.ItemsPanel>
+            <TabItem Width="200">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                        <TextBlock Text="DATA" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                    </StackPanel>
+                </TabItem.Header>
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,10,0,20">
+                        <TextBlock Text="D A T A" Style="{DynamicResource TextBlockTitle1}" />
+                    </StackPanel>
+                    <DockPanel DockPanel.Dock="Bottom" Background="{DynamicResource Brush0}" Margin="20" LastChildFill="False">
+                        <DockPanel.Effect>
+                            <DropShadowEffect BlurRadius="1" Color="{StaticResource color1}" />
+                        </DockPanel.Effect>
+                        <Border DockPanel.Dock="Left" Width="10" Height="50" Background="{DynamicResource Brush4}" />
+                        <Border DockPanel.Dock="Left" Width="3" Height="50" Background="{DynamicResource Brush4}" Margin="5,0,0,0" />
+                        <Border DockPanel.Dock="Right" Width="10" Height="10" Background="{DynamicResource Brush4}" Margin="0,0,10,5" VerticalAlignment="Bottom" />
+                        <Button DockPanel.Dock="Right" Background="Transparent">
+                            <WrapPanel>
+                                <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
+                                <TextBlock Text="返回" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
+                            </WrapPanel>
+                        </Button>
+                        <Button DockPanel.Dock="Right" Background="Transparent">
+                            <WrapPanel>
+                                <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
+                                <TextBlock Text="决定" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
+                            </WrapPanel>
+                        </Button>
+                        <Button DockPanel.Dock="Right" Background="Transparent">
+                            <WrapPanel>
+                                <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
+                                <TextBlock Text="选择" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
+                            </WrapPanel>
+                        </Button>
+                    </DockPanel>
+                    <TabControl Background="Transparent" TabStripPlacement="Left" Style="{DynamicResource TabControlStyle1}">
+                        <TabItem Width="300">
+                            <TabItem.Header>
+                                <DockPanel>
+                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock Text="档案" VerticalAlignment="Center" Margin="10,0,00,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                </DockPanel>
+                            </TabItem.Header>
+
+                            <GroupBox HorizontalAlignment="Right" VerticalAlignment="Center" Header="能力值" Width="400">
+                                <StackPanel>
+                                    <DockPanel LastChildFill="False" Margin="5,5">
+                                        <TextBlock Text="2B" />
+                                        <TextBlock DockPanel.Dock="Right">Lv : 99</TextBlock>
+                                    </DockPanel>
+                                    <Border Height="2" Background="{DynamicResource Brush2}" Margin="0,10" />
+                                    <DockPanel LastChildFill="False" Margin="5,5">
+                                        <TextBlock Text="经验值：" />
+                                        <TextBlock DockPanel.Dock="Right">2,028,920</TextBlock>
+                                    </DockPanel>
+                                    <DockPanel LastChildFill="False" Margin="5,5">
+                                        <TextBlock Text="HP：" />
+                                        <Border Background="{DynamicResource Brush3}" Height="10" Width="150" />
+                                        <TextBlock DockPanel.Dock="Right">9,057/ 9,057</TextBlock>
+                                    </DockPanel>
+                                    <Border Height="2" Background="{DynamicResource Brush2}" Margin="0,10" />
+                                    <DockPanel LastChildFill="False" Margin="5,5">
+                                        <TextBlock Text="攻击力（弱）：" />
+                                        <TextBlock DockPanel.Dock="Right" TextAlignment="Right" MinWidth="50">8,747</TextBlock>
+                                        <TextBlock DockPanel.Dock="Right" Width="30" TextAlignment="Center">+</TextBlock>
+                                        <TextBlock DockPanel.Dock="Right">8,747</TextBlock>
+                                    </DockPanel>
+                                    <DockPanel LastChildFill="False" Margin="5,5">
+                                        <TextBlock Text="攻击力（强）：" />
+                                        <TextBlock DockPanel.Dock="Right" TextAlignment="Right" MinWidth="50">8,586</TextBlock>
+                                        <TextBlock DockPanel.Dock="Right" Width="30" TextAlignment="Center">+</TextBlock>
+                                        <TextBlock DockPanel.Dock="Right">8,586</TextBlock>
+                                    </DockPanel>
+                                    <DockPanel LastChildFill="False" Margin="5,5">
+                                        <TextBlock Text="射击攻击力：" />
+                                        <TextBlock DockPanel.Dock="Right" TextAlignment="Right" MinWidth="50">0</TextBlock>
+                                        <TextBlock DockPanel.Dock="Right" Width="30" TextAlignment="Center">+</TextBlock>
+                                        <TextBlock DockPanel.Dock="Right">180</TextBlock>
+                                    </DockPanel>
+                                    <DockPanel LastChildFill="False" Margin="5,5">
+                                        <TextBlock Text="防御力：" />
+                                        <TextBlock DockPanel.Dock="Right">4,770</TextBlock>
+                                    </DockPanel>
+                                    <UniformGrid Rows="1" Margin="5,15">
+                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                    </UniformGrid>
+                                    <Border Height="2" Background="{DynamicResource Brush2}" />
+                                    <Grid Height="100">
+                                        <TextBlock Text="NO ERROR" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Grid>
+                                </StackPanel>
+                            </GroupBox>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <DockPanel>
+                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock Text="个体资料" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                </DockPanel>
+                            </TabItem.Header>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <DockPanel>
+                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock Text="教学" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                </DockPanel>
+                            </TabItem.Header>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <DockPanel>
+                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock Text="武器故事" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                </DockPanel>
+                            </TabItem.Header>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <DockPanel>
+                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock Text="绘本" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                </DockPanel>
+                            </TabItem.Header>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <DockPanel>
+                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock Text="鱼类图片" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                </DockPanel>
+                            </TabItem.Header>
+                        </TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <DockPanel>
+                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <TextBlock Text="小说" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                </DockPanel>
+                            </TabItem.Header>
+                        </TabItem>
+                    </TabControl>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+    </Border>
+</Window>

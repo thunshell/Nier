@@ -8,176 +8,296 @@
         Title="MainWindow" Height="850" Width="1500" Background="{DynamicResource bg1}">
     <Window.Resources>
     </Window.Resources>
-    <Border Padding="0,20">
-        <TabControl Background="Transparent" TabStripPlacement="Top">
-            <TabControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel />
-                </ItemsPanelTemplate>
-            </TabControl.ItemsPanel>
-            <TabItem Width="200">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                        <TextBlock Text="DATA" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                    </StackPanel>
-                </TabItem.Header>
-                <DockPanel>
-                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,10,0,20">
-                        <TextBlock Text="D A T A" Style="{DynamicResource TextBlockTitle1}" />
-                    </StackPanel>
-                    <DockPanel DockPanel.Dock="Bottom" Background="{DynamicResource Brush0}" Margin="20" LastChildFill="False">
-                        <DockPanel.Effect>
-                            <DropShadowEffect BlurRadius="1" Color="{StaticResource color1}" />
-                        </DockPanel.Effect>
-                        <Border DockPanel.Dock="Left" Width="10" Height="50" Background="{DynamicResource Brush4}" />
-                        <Border DockPanel.Dock="Left" Width="3" Height="50" Background="{DynamicResource Brush4}" Margin="5,0,0,0" />
-                        <Border DockPanel.Dock="Right" Width="10" Height="10" Background="{DynamicResource Brush4}" Margin="0,0,10,5" VerticalAlignment="Bottom" />
-                        <Button DockPanel.Dock="Right" Background="Transparent">
-                            <WrapPanel>
-                                <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
-                                <TextBlock Text="返回" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
-                            </WrapPanel>
-                        </Button>
-                        <Button DockPanel.Dock="Right" Background="Transparent">
-                            <WrapPanel>
-                                <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
-                                <TextBlock Text="决定" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
-                            </WrapPanel>
-                        </Button>
-                        <Button DockPanel.Dock="Right" Background="Transparent">
-                            <WrapPanel>
-                                <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
-                                <TextBlock Text="选择" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
-                            </WrapPanel>
-                        </Button>
-                    </DockPanel>
-                    <TabControl Background="Transparent" TabStripPlacement="Left" Style="{DynamicResource TabControlStyle1}">
-                        <TabItem Width="300">
-                            <TabItem.Header>
-                                <DockPanel>
-                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock Text="档案" VerticalAlignment="Center" Margin="10,0,00,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                </DockPanel>
-                            </TabItem.Header>
+    <Grid>
+        <UserControl Template="{StaticResource borderHorizol}" VerticalAlignment="Top" Margin="0,80" />
+        <UserControl Template="{StaticResource borderHorizol}" VerticalAlignment="Bottom" Margin="0,20" />
+        <Border Padding="30">
+            <TabControl Background="Transparent" TabStripPlacement="Top">
+                <TabControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </TabControl.ItemsPanel>
+                <TabItem Width="200">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                            <TextBlock Text="DATA" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <DockPanel Margin="0,10">
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,20">
+                            <TextBlock Text="D A T A" Style="{DynamicResource TextBlockTitle1}" />
+                        </StackPanel>
+                        <DockPanel DockPanel.Dock="Bottom" Background="{DynamicResource Brush0}" Margin="20" LastChildFill="False">
+                            <DockPanel.Effect>
+                                <DropShadowEffect BlurRadius="1" Color="{StaticResource color1}" />
+                            </DockPanel.Effect>
+                            <Border DockPanel.Dock="Left" Width="10" Height="50" Background="{DynamicResource Brush4}" />
+                            <Border DockPanel.Dock="Left" Width="3" Height="50" Background="{DynamicResource Brush4}" Margin="5,0,0,0" />
+                            <Border DockPanel.Dock="Right" Width="10" Height="10" Background="{DynamicResource Brush4}" Margin="0,0,10,5" VerticalAlignment="Bottom" />
+                            <Button DockPanel.Dock="Right" Background="{DynamicResource Brush0}">
+                                <WrapPanel>
+                                    <Border Height="14" Padding="4,0" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}">
+                                        <TextBlock Text="Esc" Foreground="{Binding BorderBrush, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Border>
+                                    <TextBlock Text="返回" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
+                                </WrapPanel>
+                            </Button>
+                            <Button DockPanel.Dock="Right" Background="{DynamicResource Brush0}">
+                                <WrapPanel>
+                                    <Border Height="14" Padding="4,0" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}">
+                                        <TextBlock Text="Enter" Foreground="{Binding BorderBrush, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Border>
+                                    <TextBlock Text="决定" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
+                                </WrapPanel>
+                            </Button>
+                            <Button DockPanel.Dock="Right" Background="{DynamicResource Brush0}">
+                                <WrapPanel>
+                                    <Border Height="14" Padding="4,0" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}">
+                                        <TextBlock Text="W" Foreground="{Binding BorderBrush, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Border>
+                                    <Border Margin="10,0,0,0" Height="14" Padding="4,0" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}">
+                                        <TextBlock Text="S" Foreground="{Binding BorderBrush, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Border>
+                                    <TextBlock Text="选择" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
+                                </WrapPanel>
+                            </Button>
+                        </DockPanel>
+                        <TabControl TabStripPlacement="Left">
+                            <TabItem Width="300">
+                                <TabItem.Header>
+                                    <DockPanel>
+                                        <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock Text="档案" VerticalAlignment="Center" Margin="10,0,00,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    </DockPanel>
+                                </TabItem.Header>
 
-                            <GroupBox HorizontalAlignment="Right" VerticalAlignment="Center" Header="能力值" Width="400">
-                                <StackPanel>
-                                    <DockPanel LastChildFill="False" Margin="5,5">
-                                        <TextBlock Text="2B" />
-                                        <TextBlock DockPanel.Dock="Right">Lv : 99</TextBlock>
+                                <GroupBox HorizontalAlignment="Right" VerticalAlignment="Center" Header="能力值" Width="400">
+                                    <StackPanel>
+                                        <DockPanel LastChildFill="False" Margin="5,5">
+                                            <TextBlock Text="2B" />
+                                            <TextBlock DockPanel.Dock="Right">Lv : 99</TextBlock>
+                                        </DockPanel>
+                                        <Border Height="2" Background="{DynamicResource Brush2}" Margin="0,10" />
+                                        <DockPanel LastChildFill="False" Margin="5,5">
+                                            <TextBlock Text="经验值：" />
+                                            <TextBlock DockPanel.Dock="Right">2,028,920</TextBlock>
+                                        </DockPanel>
+                                        <DockPanel LastChildFill="False" Margin="5,5">
+                                            <TextBlock Text="HP：" />
+                                            <Border Background="{DynamicResource Brush3}" Height="10" Width="150" />
+                                            <TextBlock DockPanel.Dock="Right">9,057/ 9,057</TextBlock>
+                                        </DockPanel>
+                                        <Border Height="2" Background="{DynamicResource Brush2}" Margin="0,10" />
+                                        <DockPanel LastChildFill="False" Margin="5,5">
+                                            <TextBlock Text="攻击力（弱）：" />
+                                            <TextBlock DockPanel.Dock="Right" TextAlignment="Right" MinWidth="50">8,747</TextBlock>
+                                            <TextBlock DockPanel.Dock="Right" Width="30" TextAlignment="Center">+</TextBlock>
+                                            <TextBlock DockPanel.Dock="Right">8,747</TextBlock>
+                                        </DockPanel>
+                                        <DockPanel LastChildFill="False" Margin="5,5">
+                                            <TextBlock Text="攻击力（强）：" />
+                                            <TextBlock DockPanel.Dock="Right" TextAlignment="Right" MinWidth="50">8,586</TextBlock>
+                                            <TextBlock DockPanel.Dock="Right" Width="30" TextAlignment="Center">+</TextBlock>
+                                            <TextBlock DockPanel.Dock="Right">8,586</TextBlock>
+                                        </DockPanel>
+                                        <DockPanel LastChildFill="False" Margin="5,5">
+                                            <TextBlock Text="射击攻击力：" />
+                                            <TextBlock DockPanel.Dock="Right" TextAlignment="Right" MinWidth="50">0</TextBlock>
+                                            <TextBlock DockPanel.Dock="Right" Width="30" TextAlignment="Center">+</TextBlock>
+                                            <TextBlock DockPanel.Dock="Right">180</TextBlock>
+                                        </DockPanel>
+                                        <DockPanel LastChildFill="False" Margin="5,5">
+                                            <TextBlock Text="防御力：" />
+                                            <TextBlock DockPanel.Dock="Right">4,770</TextBlock>
+                                        </DockPanel>
+                                        <UniformGrid Rows="1" Margin="5,15">
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
+                                        </UniformGrid>
+                                        <Border Height="2" Background="{DynamicResource Brush2}" />
+                                        <Grid Height="100">
+                                            <TextBlock Text="NO ERROR" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        </Grid>
+                                    </StackPanel>
+                                </GroupBox>
+                            </TabItem>
+                            <TabItem>
+                                <TabItem.Header>
+                                    <DockPanel>
+                                        <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock Text="个体资料" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
                                     </DockPanel>
-                                    <Border Height="2" Background="{DynamicResource Brush2}" Margin="0,10" />
-                                    <DockPanel LastChildFill="False" Margin="5,5">
-                                        <TextBlock Text="经验值：" />
-                                        <TextBlock DockPanel.Dock="Right">2,028,920</TextBlock>
+                                </TabItem.Header>
+                            </TabItem>
+                            <TabItem>
+                                <TabItem.Header>
+                                    <DockPanel>
+                                        <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock Text="教学" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
                                     </DockPanel>
-                                    <DockPanel LastChildFill="False" Margin="5,5">
-                                        <TextBlock Text="HP：" />
-                                        <Border Background="{DynamicResource Brush3}" Height="10" Width="150" />
-                                        <TextBlock DockPanel.Dock="Right">9,057/ 9,057</TextBlock>
+                                </TabItem.Header>
+                            </TabItem>
+                            <TabItem>
+                                <TabItem.Header>
+                                    <DockPanel>
+                                        <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock Text="武器故事" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
                                     </DockPanel>
-                                    <Border Height="2" Background="{DynamicResource Brush2}" Margin="0,10" />
-                                    <DockPanel LastChildFill="False" Margin="5,5">
-                                        <TextBlock Text="攻击力（弱）：" />
-                                        <TextBlock DockPanel.Dock="Right" TextAlignment="Right" MinWidth="50">8,747</TextBlock>
-                                        <TextBlock DockPanel.Dock="Right" Width="30" TextAlignment="Center">+</TextBlock>
-                                        <TextBlock DockPanel.Dock="Right">8,747</TextBlock>
+                                </TabItem.Header>
+                            </TabItem>
+                            <TabItem>
+                                <TabItem.Header>
+                                    <DockPanel>
+                                        <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock Text="绘本" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
                                     </DockPanel>
-                                    <DockPanel LastChildFill="False" Margin="5,5">
-                                        <TextBlock Text="攻击力（强）：" />
-                                        <TextBlock DockPanel.Dock="Right" TextAlignment="Right" MinWidth="50">8,586</TextBlock>
-                                        <TextBlock DockPanel.Dock="Right" Width="30" TextAlignment="Center">+</TextBlock>
-                                        <TextBlock DockPanel.Dock="Right">8,586</TextBlock>
+                                </TabItem.Header>
+                            </TabItem>
+                            <TabItem>
+                                <TabItem.Header>
+                                    <DockPanel>
+                                        <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock Text="鱼类图片" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
                                     </DockPanel>
-                                    <DockPanel LastChildFill="False" Margin="5,5">
-                                        <TextBlock Text="射击攻击力：" />
-                                        <TextBlock DockPanel.Dock="Right" TextAlignment="Right" MinWidth="50">0</TextBlock>
-                                        <TextBlock DockPanel.Dock="Right" Width="30" TextAlignment="Center">+</TextBlock>
-                                        <TextBlock DockPanel.Dock="Right">180</TextBlock>
+                                </TabItem.Header>
+                            </TabItem>
+                            <TabItem>
+                                <TabItem.Header>
+                                    <DockPanel>
+                                        <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                        <TextBlock Text="小说" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
                                     </DockPanel>
-                                    <DockPanel LastChildFill="False" Margin="5,5">
-                                        <TextBlock Text="防御力：" />
-                                        <TextBlock DockPanel.Dock="Right">4,770</TextBlock>
-                                    </DockPanel>
-                                    <UniformGrid Rows="1" Margin="5,15">
-                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
-                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
-                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
-                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
-                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
-                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
-                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
-                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
-                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
-                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
-                                        <Border BorderThickness="2" BorderBrush="{DynamicResource Brush2}" Width="20" Height="20" />
-                                    </UniformGrid>
-                                    <Border Height="2" Background="{DynamicResource Brush2}" />
-                                    <Grid Height="100">
-                                        <TextBlock Text="NO ERROR" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                </TabItem.Header>
+                            </TabItem>
+                        </TabControl>
+                    </DockPanel>
+                </TabItem>
+                <TabItem Width="200">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                            <TextBlock Text="SYSTEM" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Border Margin="0,20">
+                        <DockPanel>
+                            <TextBlock Text="Media" Style="{DynamicResource TextBlockTitle1}" DockPanel.Dock="Top" />
+                            <DockPanel DockPanel.Dock="Bottom" Height="60">
+                                <Border DockPanel.Dock="Top" Height="5" />
+                                <Border DockPanel.Dock="Bottom" Height="5" />
+                                <Button>
+                                    <Path Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" Stretch="Uniform" Data="M0,0 L2,0 L2,4 L10,0 L10,10 L2,6 L2,10 L0,10Z" />
+                                </Button>
+                                <Border  Width="10"/>
+                                <ToggleButton>
+                                    <Grid>
+                                        <Path x:Name="play" Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type ToggleButton}}}" Stretch="Uniform" Data="M2,2 8,5 2,8 Z" />
+                                        <Path x:Name="pause" Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type ToggleButton}}}" Stretch="Uniform" Data="M2,0 2,10 4,10 4,0 6,0 6,10 8,10 8,0 Z" Opacity="0" />
                                     </Grid>
-                                </StackPanel>
-                            </GroupBox>
-                        </TabItem>
-                        <TabItem>
-                            <TabItem.Header>
-                                <DockPanel>
-                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock Text="个体资料" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
+                                    <ToggleButton.Triggers>
+                                        <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="pause" Storyboard.TargetProperty="Opacity" Duration="00:00:00.01" From="1" To="0" />
+                                                    <DoubleAnimation Storyboard.TargetName="play" Storyboard.TargetProperty="Opacity" Duration="00:00:00.01" From="0" To="1" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="pause" Storyboard.TargetProperty="Opacity" Duration="00:00:00.001" From="0" To="1" />
+                                                    <DoubleAnimation Storyboard.TargetName="play" Storyboard.TargetProperty="Opacity" Duration="00:00:00.001" From="1" To="0" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </ToggleButton.Triggers>
+                                </ToggleButton>
+                                <Border  Width="10"/>
+                                <Button>
+                                    <Path Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" Stretch="Uniform" Data="M0,0 L8,4 L8,0 L10,0 L10,10 L8,10 L8,6 L0,10Z" />
+                                </Button>
+                                <Border Width="20" />
+                                <Image Source="https://p3fx.kgimg.com/stdmusic/20190809/20190809115914186840.jpg" />
+                                <Border  Width="10"/>
+                                <DockPanel Width="400">
+                                    <Slider Maximum="173" Value="80" DockPanel.Dock="Bottom" Height="5" Margin="0,10" />
+                                    <TextBlock Text="光ノ風吹ク丘" FontSize="14" DockPanel.Dock="Left" />
+                                    <TextBlock Text="01:20 / 02:53" FontSize="12" DockPanel.Dock="Right" />
+                                    <Border />
                                 </DockPanel>
-                            </TabItem.Header>
-                        </TabItem>
-                        <TabItem>
-                            <TabItem.Header>
-                                <DockPanel>
-                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock Text="教学" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                </DockPanel>
-                            </TabItem.Header>
-                        </TabItem>
-                        <TabItem>
-                            <TabItem.Header>
-                                <DockPanel>
-                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock Text="武器故事" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                </DockPanel>
-                            </TabItem.Header>
-                        </TabItem>
-                        <TabItem>
-                            <TabItem.Header>
-                                <DockPanel>
-                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock Text="绘本" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                </DockPanel>
-                            </TabItem.Header>
-                        </TabItem>
-                        <TabItem>
-                            <TabItem.Header>
-                                <DockPanel>
-                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock Text="鱼类图片" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                </DockPanel>
-                            </TabItem.Header>
-                        </TabItem>
-                        <TabItem>
-                            <TabItem.Header>
-                                <DockPanel>
-                                    <Border Width="20" Height="20" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock DockPanel.Dock="Right" Text="100%" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                    <TextBlock Text="小说" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type TabItem}}}" />
-                                </DockPanel>
-                            </TabItem.Header>
-                        </TabItem>
-                    </TabControl>
-                </DockPanel>
-            </TabItem>
-        </TabControl>
-    </Border>
+                                <Border />
+                            </DockPanel>
+                            <DockPanel>
+                                <Border Width="250">
+                                    <ScrollViewer>
+                                        <ItemsControl>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">The Chainsmokers、Illenium、Lennon Stella - Takeaway</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Alan Walker、A$AP Rocky - Live Fast</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Ariana Grande、Social House - boyfriend</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Martin Garrix、JRM - These Are The Times</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Taylor Swift - The Archer</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Alec Benjamin - Jesus In LA</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Katy Perry - Small Talk</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Trivecta、Amidy、RØRY - Riptide</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Alan Walker、A$AP Rocky - Live Fast (Remix)</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">YBN Cordae、Ty Dolla $ign - Way Back Home (Explicit)</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Peppa Pig - Balloon Ride</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Gryffin、Carly Rae Jepsen - OMG</TextBlock>
+                                            </Button>
+                                            <Button >
+                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Lana Del Rey - Looking For America</TextBlock>
+                                            </Button>
+                                        </ItemsControl>
+                                    </ScrollViewer>
+                                </Border>
+                                <Border />
+                            </DockPanel>
+                        </DockPanel>
+                    </Border>
+                </TabItem>
+            </TabControl>
+        </Border>
+    </Grid>
 </Window>

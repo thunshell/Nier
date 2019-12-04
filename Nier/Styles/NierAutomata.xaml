@@ -7,11 +7,13 @@
     <Color x:Key="color2">#BAB5A1</Color>
     <Color x:Key="color3">#A09D96</Color>
     <Color x:Key="color4">#454138</Color>
+    <Color x:Key="color5">#2A2822</Color>
     <SolidColorBrush x:Key="Brush0" Color="{StaticResource color0}" />
     <SolidColorBrush x:Key="Brush1" Color="{StaticResource color1}" />
     <SolidColorBrush x:Key="Brush2" Color="{StaticResource color2}" />
     <SolidColorBrush x:Key="Brush3" Color="{StaticResource color3}" />
     <SolidColorBrush x:Key="Brush4" Color="{StaticResource color4}" />
+    <SolidColorBrush x:Key="Brush5" Color="{StaticResource color5}" />
 
 
 
@@ -48,9 +50,122 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
-    
-    
-    <Style TargetType="TextBlock">
+    <ControlTemplate x:Key="borderHorizol">
+        <DockPanel Grid.Row="1" x:Name="borderFirstHorizol" VerticalAlignment="Top" Margin="0,1,0,0">
+            <DockPanel.RenderTransform>
+                <RotateTransform x:Name="rotateFirst" Angle="0" />
+            </DockPanel.RenderTransform>
+            <Grid>
+                <Line X1="0" X2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
+                <Line X1="46" X2="50" Y1="2" Y2="2" StrokeThickness="4" Stroke="{DynamicResource Brush4}" />
+            </Grid>
+            <Line DockPanel.Dock="Right" X1="0" X2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
+            <Border BorderThickness="0" Margin="0,-1" Height="30">
+                <Border.Background>
+                    <DrawingBrush TileMode="Tile" Stretch="None" ViewportUnits="Absolute" Viewport="0,0 80,30">
+                        <DrawingBrush.Drawing>
+                            <DrawingGroup>
+                                <GeometryDrawing Brush="Transparent">
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0 80,30" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0 80,2" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0 4,5" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="76,0 4,5" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <EllipseGeometry Center="35,10" RadiusX="3" RadiusY="3" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <EllipseGeometry Center="41,20" RadiusX="3" RadiusY="3" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <EllipseGeometry Center="46,10" RadiusX="3" RadiusY="3" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingGroup>
+                        </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                </Border.Background>
+            </Border>
+        </DockPanel>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="borderVertical">
+        <DockPanel Grid.Column="1" HorizontalAlignment="Left" Margin="-1,0,0,0">
+            <Grid DockPanel.Dock="Top">
+                <Line Y1="0" Y2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
+                <Line Y1="46" Y2="50" X1="2" X2="2" StrokeThickness="4" Stroke="{DynamicResource Brush4}" />
+            </Grid>
+            <Line DockPanel.Dock="Bottom" Y1="0" Y2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
+            <Border BorderThickness="0" Margin="-1,0" Width="30" DockPanel.Dock="Top">
+                <Border.Background>
+                    <DrawingBrush TileMode="Tile" Stretch="None" ViewportUnits="Absolute" Viewport="0,0 30,80">
+                        <DrawingBrush.Drawing>
+                            <DrawingGroup>
+                                <GeometryDrawing Brush="Transparent">
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0 30,80" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0 2,80" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0 5,4" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,76 5,4" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <EllipseGeometry Center="10,35" RadiusX="3" RadiusY="3" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <EllipseGeometry Center="20,41" RadiusX="3" RadiusY="3" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource Brush4}">
+                                    <GeometryDrawing.Geometry>
+                                        <EllipseGeometry Center="10,46" RadiusX="3" RadiusY="3" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingGroup>
+                        </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                </Border.Background>
+            </Border>
+        </DockPanel>
+    </ControlTemplate>
+
+
+    <Style x:Key="NierTextBlock" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource Brush4}" />
         <Setter Property="FontSize" Value="18" />
         <Setter Property="FontWeight" Value="Bold" />
@@ -66,9 +181,27 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    
-    
+
+    <Style TargetType="{x:Type ToolTip}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToolTip}">
+                    <ContentPresenter x:Name="contentPresenter" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid Background="{DynamicResource Brush4}">
+                        <TextBlock Text="{TemplateBinding Content}" Foreground="{DynamicResource Brush0}" FontSize="12" />
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
 
     <Style TargetType="{x:Type GroupBox}">
         <Setter Property="Background" Value="{DynamicResource bg0}" />
@@ -89,7 +222,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Border Background="{DynamicResource Brush4}" Padding="10,5">
-                                <ContentPresenter ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                <ContentPresenter ContentSource="Header" RecognizesAccessKey="True" TextElement.Foreground="{TemplateBinding Foreground}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             </Border>
                             <Border Grid.Row="1" Padding="10,5">
                                 <ContentPresenter TextElement.Foreground="{DynamicResource Brush4}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
@@ -112,7 +245,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style TargetType="{x:Type Button}">
+    <Style x:Key="NierButton" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
         <Setter Property="Foreground" Value="{DynamicResource Brush4}"/>
         <Setter Property="FontSize" Value="18" />
@@ -123,9 +256,11 @@
         <Setter Property="Padding" Value="10,6"/>
         <Setter Property="MinHeight" Value="50"/>
         <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsTabStop" Value="True" />
         <Setter Property="Background">
             <Setter.Value>
-                <SolidColorBrush Color="{StaticResource color2}" Opacity="0.7" />
+                <SolidColorBrush Color="{DynamicResource color2}" Opacity="0.7" />
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
@@ -160,6 +295,17 @@
         </Setter>
     </Style>
 
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource NierButton}">
+        <Setter Property="Background" Value="{DynamicResource Brush0}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="{DynamicResource Brush4}" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Background" Value="{DynamicResource Brush0}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
     <Style TargetType="{x:Type RadioButton}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
@@ -219,6 +365,52 @@
     </Style>
 
 
+    <Style TargetType="{x:Type ToggleButton}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource ButtonFocusVisual}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brush4}"/>
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="BorderThickness" Value="0,2"/>
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="10,6"/>
+        <Setter Property="MinHeight" Value="50"/>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="{DynamicResource color2}" Opacity="0.7" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                        <Border x:Name="contentBorder" Margin="0,5" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource Brush4}" />
+                            <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush4}" />
+                            <Setter Property="Foreground" Value="{DynamicResource Brush0}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource Brush4}" />
+                            <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush2}" />
+                            <Setter Property="Foreground" Value="{DynamicResource Brush4}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource Brush3}" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="{x:Type TabItem}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
         <Setter Property="Foreground" Value="{DynamicResource Brush4}"/>
@@ -228,7 +420,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="Padding" Value="10,6"/>
-        <Setter Property="Margin" Value="20,5,0,5"/>
+        <Setter Property="Margin" Value="30,0,0,0"/>
         <Setter Property="MinHeight" Value="50"/>
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Template">
@@ -333,7 +525,6 @@
                             <Setter Property="BorderBrush" Value="Transparent" />
                             <Setter Property="Background" TargetName="contentBorder" Value="{DynamicResource Brush4}" />
                             <Setter Property="Foreground" Value="{DynamicResource Brush0}" />
-                            <Setter Property="Margin" TargetName="contentBorder" Value="0,5,0,0" />
                         </MultiDataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -341,242 +532,14 @@
         </Setter>
     </Style>
     
-    
-
-    
 
     <Style TargetType="{x:Type TabControl}">
-        <Setter Property="Margin" Value="0,0"/>
-        <Setter Property="Padding" Value="50,0"/>
-        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TabControl}">
-                    <Grid x:Name="templateRoot" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition x:Name="ColumnDefinition0"/>
-                            <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>
-                            <ColumnDefinition x:Name="ColumnDefinition2" Width="0"/>
-                            <ColumnDefinition x:Name="ColumnDefinition3" Width="0"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
-                            <RowDefinition x:Name="RowDefinition1" Height="Auto"/>
-                            <RowDefinition x:Name="RowDefinition2" Height="*"/>
-                            <RowDefinition x:Name="RowDefinition3" Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <StackPanel x:Name="headerPanel" Orientation="Horizontal" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
-                            <Border BorderThickness="10,0,0,0" BorderBrush="{DynamicResource Brush2}" Margin="0,7" />
-                            <Border BorderThickness="5,0,0,0" BorderBrush="{DynamicResource Brush2}" Margin="5,7,0,7" />
-                            <ItemsPresenter x:Name="inHeaderPanel" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1" />
-                        </StackPanel>
-                        <DockPanel Grid.Row="1" x:Name="borderFirstHorizol">
-                            <DockPanel.RenderTransform>
-                                <RotateTransform x:Name="rotateFirst" Angle="0" />
-                            </DockPanel.RenderTransform>
-                            <Grid>
-                                <Line X1="0" X2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
-                                <Line X1="46" X2="50" Y1="2" Y2="2" StrokeThickness="4" Stroke="{DynamicResource Brush4}" />
-                            </Grid>
-                            <Line DockPanel.Dock="Right" X1="0" X2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
-                            <Border BorderThickness="0" Margin="0,-1" Height="30">
-                                <Border.Background>
-                                    <DrawingBrush TileMode="Tile" Stretch="None" ViewportUnits="Absolute" Viewport="0,0 80,30">
-                                        <DrawingBrush.Drawing>
-                                            <DrawingGroup>
-                                                <GeometryDrawing Brush="Transparent">
-                                                    <GeometryDrawing.Geometry>
-                                                        <RectangleGeometry Rect="0,0 80,30" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <RectangleGeometry Rect="0,0 80,2" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <RectangleGeometry Rect="0,0 4,5" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <RectangleGeometry Rect="76,0 4,5" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <EllipseGeometry Center="35,10" RadiusX="3" RadiusY="3" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <EllipseGeometry Center="41,20" RadiusX="3" RadiusY="3" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <EllipseGeometry Center="46,10" RadiusX="3" RadiusY="3" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                            </DrawingGroup>
-                                        </DrawingBrush.Drawing>
-                                    </DrawingBrush>
-                                </Border.Background>
-                            </Border>
-                        </DockPanel>
-                        <DockPanel Grid.Column="1" x:Name="borderFirstVertical">
-                            <Grid DockPanel.Dock="Top">
-                                <Line Y1="0" Y2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
-                                <Line Y1="46" Y2="50" X1="2" X2="2" StrokeThickness="4" Stroke="{DynamicResource Brush4}" />
-                            </Grid>
-                            <Line DockPanel.Dock="Bottom" Y1="0" Y2="50" StrokeThickness="2" Stroke="{DynamicResource Brush4}" />
-                            <Border BorderThickness="0" Margin="-1,0" Width="30" DockPanel.Dock="Top">
-                                <Border.Background>
-                                    <DrawingBrush TileMode="Tile" Stretch="None" ViewportUnits="Absolute" Viewport="0,0 30,80">
-                                        <DrawingBrush.Drawing>
-                                            <DrawingGroup>
-                                                <GeometryDrawing Brush="Transparent">
-                                                    <GeometryDrawing.Geometry>
-                                                        <RectangleGeometry Rect="0,0 30,80" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <RectangleGeometry Rect="0,0 2,80" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <RectangleGeometry Rect="0,0 5,4" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <RectangleGeometry Rect="0,76 5,4" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <EllipseGeometry Center="10,35" RadiusX="3" RadiusY="3" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <EllipseGeometry Center="20,41" RadiusX="3" RadiusY="3" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                                <GeometryDrawing Brush="{DynamicResource Brush4}">
-                                                    <GeometryDrawing.Geometry>
-                                                        <EllipseGeometry Center="10,46" RadiusX="3" RadiusY="3" />
-                                                    </GeometryDrawing.Geometry>
-                                                </GeometryDrawing>
-                                            </DrawingGroup>
-                                        </DrawingBrush.Drawing>
-                                    </DrawingBrush>
-                                </Border.Background>
-                            </Border>
-                        </DockPanel>
-                        <Border x:Name="contentPanel" Grid.Row="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
-                            <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                        </Border>
-                        <Rectangle x:Name="borderLastHorizol" Grid.Row="3" Height="30">
-                            <Rectangle.Fill>
-                                <VisualBrush Visual="{Binding ElementName=borderFirstHorizol}" />
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <Rectangle x:Name="borderLastVertical" Grid.Row="3" Width="30">
-                            <Rectangle.Fill>
-                                <VisualBrush Visual="{Binding ElementName=borderFirstVertical}" />
-                            </Rectangle.Fill>
-                        </Rectangle>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="TabStripPlacement" Value="Bottom">
-                            <Setter Property="Grid.Row" TargetName="borderFirstHorizol" Value="0"/>
-                            <Setter Property="Grid.Row" TargetName="contentPanel" Value="1"/>
-                            <Setter Property="Grid.Row" TargetName="borderLastHorizol" Value="2"/>
-                            <Setter Property="Grid.Row" TargetName="borderLastVertical" Value="2"/>
-                            <Setter Property="Grid.Row" TargetName="headerPanel" Value="3"/>
-                            <Setter Property="Height" TargetName="RowDefinition0" Value="Auto"/>
-                            <Setter Property="Height" TargetName="RowDefinition1" Value="*"/>
-                            <Setter Property="Height" TargetName="RowDefinition2" Value="Auto"/>
-                            <Setter Property="Height" TargetName="RowDefinition3" Value="Auto"/>
-                            <Setter Property="Visibility" TargetName="borderFirstHorizol" Value="Visible"/>
-                            <Setter Property="Visibility" TargetName="borderFirstVertical" Value="Collapsed"/>
-                            <Setter Property="Visibility" TargetName="borderLastHorizol" Value="Visible"/>
-                            <Setter Property="Visibility" TargetName="borderLastVertical" Value="Collapsed"/>
-                            <Setter Property="Grid.Row" TargetName="inHeaderPanel" Value="3"/>
-                        </Trigger>
-                        <Trigger Property="TabStripPlacement" Value="Left">
-                            <Setter Property="Grid.Row" TargetName="borderFirstHorizol" Value="0"/>
-                            <Setter Property="Grid.Row" TargetName="borderFirstVertical" Value="0"/>
-                            <Setter Property="Grid.Row" TargetName="borderLastHorizol" Value="0"/>
-                            <Setter Property="Grid.Row" TargetName="borderLastVertical" Value="0"/>
-                            <Setter Property="Grid.Row" TargetName="headerPanel" Value="0"/>
-                            <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
-                            <Setter Property="Grid.Column" TargetName="headerPanel" Value="0"/>
-                            <Setter Property="Grid.Column" TargetName="borderFirstHorizol" Value="1"/>
-                            <Setter Property="Grid.Column" TargetName="borderFirstVertical" Value="1"/>
-                            <Setter Property="Grid.Column" TargetName="contentPanel" Value="2"/>
-                            <Setter Property="Grid.Column" TargetName="borderLastHorizol" Value="3"/>
-                            <Setter Property="Grid.Column" TargetName="borderLastVertical" Value="3"/>
-                            <Setter Property="Width" TargetName="ColumnDefinition0" Value="Auto"/>
-                            <Setter Property="Width" TargetName="ColumnDefinition1" Value="Auto"/>
-                            <Setter Property="Width" TargetName="ColumnDefinition2" Value="*"/>
-                            <Setter Property="Width" TargetName="ColumnDefinition3" Value="Auto"/>
-                            <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
-                            <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
-                            <Setter Property="Height" TargetName="RowDefinition2" Value="0"/>
-                            <Setter Property="Height" TargetName="RowDefinition3" Value="0"/>
-                            <Setter Property="Visibility" TargetName="borderFirstHorizol" Value="Collapsed"/>
-                            <Setter Property="Visibility" TargetName="borderFirstVertical" Value="Visible"/>
-                            <Setter Property="Visibility" TargetName="borderLastHorizol" Value="Collapsed"/>
-                            <Setter Property="Visibility" TargetName="borderLastVertical" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="TabStripPlacement" Value="Right">
-                            <Setter Property="Grid.Row" TargetName="borderFirstHorizol" Value="0"/>
-                            <Setter Property="Grid.Row" TargetName="borderFirstVertical" Value="0"/>
-                            <Setter Property="Grid.Row" TargetName="borderLastHorizol" Value="0"/>
-                            <Setter Property="Grid.Row" TargetName="borderLastVertical" Value="0"/>
-                            <Setter Property="Grid.Row" TargetName="headerPanel" Value="0"/>
-                            <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
-                            <Setter Property="Grid.Column" TargetName="headerPanel" Value="3"/>
-                            <Setter Property="Grid.Column" TargetName="borderFirstHorizol" Value="0"/>
-                            <Setter Property="Grid.Column" TargetName="borderFirstVertical" Value="0"/>
-                            <Setter Property="Grid.Column" TargetName="contentPanel" Value="1"/>
-                            <Setter Property="Grid.Column" TargetName="borderLastHorizol" Value="2"/>
-                            <Setter Property="Grid.Column" TargetName="borderLastVertical" Value="2"/>
-                            <Setter Property="Width" TargetName="ColumnDefinition0" Value="Auto"/>
-                            <Setter Property="Width" TargetName="ColumnDefinition1" Value="*"/>
-                            <Setter Property="Width" TargetName="ColumnDefinition2" Value="Auto"/>
-                            <Setter Property="Width" TargetName="ColumnDefinition3" Value="Auto"/>
-                            <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
-                            <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
-                            <Setter Property="Height" TargetName="RowDefinition2" Value="0"/>
-                            <Setter Property="Height" TargetName="RowDefinition3" Value="0"/>
-                            <Setter Property="Visibility" TargetName="borderFirstHorizol" Value="Collapsed"/>
-                            <Setter Property="Visibility" TargetName="borderFirstVertical" Value="Visible"/>
-                            <Setter Property="Visibility" TargetName="borderLastHorizol" Value="Collapsed"/>
-                            <Setter Property="Visibility" TargetName="borderLastVertical" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="TextElement.Foreground" TargetName="templateRoot" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="TabControlStyle1" TargetType="{x:Type TabControl}">
         <Setter Property="Margin" Value="20,0"/>
         <Setter Property="Padding" Value="0,0"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">
@@ -697,7 +660,8 @@
     </Style>
     <Style x:Key="ScrollBarThumbVertical" TargetType="{x:Type Thumb}">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
-        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
@@ -716,7 +680,8 @@
     </Style>
     <Style x:Key="ScrollBarThumbHorizontal" TargetType="{x:Type Thumb}">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
-        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
@@ -739,13 +704,14 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Foreground" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="1,0"/>
-        <Setter Property="Width" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
-        <Setter Property="MinWidth" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ScrollBar}">
-                    <Grid x:Name="Bg" SnapsToDevicePixels="true">
+                    <Grid x:Name="Bg" SnapsToDevicePixels="true" Background="{DynamicResource Brush0}">
                         <Grid.RowDefinitions>
                             <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
                             <RowDefinition Height="0.00001*"/>
@@ -817,7 +783,7 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ScrollBar}">
-                            <Grid x:Name="Bg" SnapsToDevicePixels="true">
+                            <Grid x:Name="Bg" SnapsToDevicePixels="true" Background="{DynamicResource Brush0}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
                                     <ColumnDefinition Width="0.00001*"/>
@@ -884,6 +850,8 @@
     </Style>
 
     <Style TargetType="ScrollViewer">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
@@ -897,7 +865,7 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Rectangle x:Name="Corner" Grid.Column="1" Fill="Transparent" Grid.Row="1"/>
-                        <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Margin="{TemplateBinding Padding}" Grid.Row="0"/>
+                        <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}" Focusable="False"/>
                         <ScrollBar x:Name="PART_VerticalScrollBar" AutomationProperties.AutomationId="VerticalScrollBar" Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Grid.Row="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
                         <ScrollBar x:Name="PART_HorizontalScrollBar" AutomationProperties.AutomationId="HorizontalScrollBar" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
                         <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" />

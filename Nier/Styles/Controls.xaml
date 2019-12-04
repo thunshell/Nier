@@ -3,5 +3,7 @@
                     xmlns:local="clr-namespace:Nier.Styles">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Nier;component/Styles/Slider.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Nier;component/Styles/NierListBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Nier;component/Styles/NierListView.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -36,29 +36,29 @@
                             <Border DockPanel.Dock="Left" Width="10" Height="50" Background="{DynamicResource Brush4}" />
                             <Border DockPanel.Dock="Left" Width="3" Height="50" Background="{DynamicResource Brush4}" Margin="5,0,0,0" />
                             <Border DockPanel.Dock="Right" Width="10" Height="10" Background="{DynamicResource Brush4}" Margin="0,0,10,5" VerticalAlignment="Bottom" />
-                            <Button DockPanel.Dock="Right" Background="{DynamicResource Brush0}">
+                            <Button DockPanel.Dock="Right">
                                 <WrapPanel>
                                     <Border Height="14" Padding="4,0" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}">
-                                        <TextBlock Text="Esc" Foreground="{Binding BorderBrush, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        <TextBlock Text="Esc" Foreground="{Binding Background, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                     </Border>
                                     <TextBlock Text="返回" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
                                 </WrapPanel>
                             </Button>
-                            <Button DockPanel.Dock="Right" Background="{DynamicResource Brush0}">
+                            <Button DockPanel.Dock="Right">
                                 <WrapPanel>
                                     <Border Height="14" Padding="4,0" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}">
-                                        <TextBlock Text="Enter" Foreground="{Binding BorderBrush, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        <TextBlock Text="Enter" Foreground="{Binding Background, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                     </Border>
                                     <TextBlock Text="决定" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
                                 </WrapPanel>
                             </Button>
-                            <Button DockPanel.Dock="Right" Background="{DynamicResource Brush0}">
+                            <Button DockPanel.Dock="Right">
                                 <WrapPanel>
                                     <Border Height="14" Padding="4,0" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}">
-                                        <TextBlock Text="W" Foreground="{Binding BorderBrush, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        <TextBlock Text="W" Foreground="{Binding Background, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                     </Border>
                                     <Border Margin="10,0,0,0" Height="14" Padding="4,0" Background="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}">
-                                        <TextBlock Text="S" Foreground="{Binding BorderBrush, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        <TextBlock Text="S" Foreground="{Binding Background, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                     </Border>
                                     <TextBlock Text="选择" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" />
                                 </WrapPanel>
@@ -75,6 +75,9 @@
                                 </TabItem.Header>
 
                                 <GroupBox HorizontalAlignment="Right" VerticalAlignment="Center" Header="能力值" Width="400">
+                                    <GroupBox.Resources>
+                                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource NierTextBlock}" />
+                                    </GroupBox.Resources>
                                     <StackPanel>
                                         <DockPanel LastChildFill="False" Margin="5,5">
                                             <TextBlock Text="2B" />
@@ -203,7 +206,7 @@
                             <DockPanel DockPanel.Dock="Bottom" Height="60">
                                 <Border DockPanel.Dock="Top" Height="5" />
                                 <Border DockPanel.Dock="Bottom" Height="5" />
-                                <Button>
+                                <Button Style="{StaticResource NierButton}">
                                     <Path Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" Stretch="Uniform" Data="M0,0 L2,0 L2,4 L10,0 L10,10 L2,6 L2,10 L0,10Z" />
                                 </Button>
                                 <Border  Width="10"/>
@@ -232,67 +235,122 @@
                                     </ToggleButton.Triggers>
                                 </ToggleButton>
                                 <Border  Width="10"/>
-                                <Button>
+                                <Button Style="{StaticResource NierButton}">
                                     <Path Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" Stretch="Uniform" Data="M0,0 L8,4 L8,0 L10,0 L10,10 L8,10 L8,6 L0,10Z" />
                                 </Button>
                                 <Border Width="20" />
-                                <Image Source="https://p3fx.kgimg.com/stdmusic/20190809/20190809115914186840.jpg" />
+                                <Image Source="https://p3fx.kgimg.com/stdmusic/240/20181113/20181113114952781360.jpg" />
                                 <Border  Width="10"/>
                                 <DockPanel Width="400">
-                                    <Slider Maximum="173" Value="80" DockPanel.Dock="Bottom" Height="5" Margin="0,10" />
-                                    <TextBlock Text="光ノ風吹ク丘" FontSize="14" DockPanel.Dock="Left" />
-                                    <TextBlock Text="01:20 / 02:53" FontSize="12" DockPanel.Dock="Right" />
+                                    <DockPanel.Resources>
+                                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource NierTextBlock}" />
+                                    </DockPanel.Resources>
+                                    <Slider Maximum="173" Value="85" DockPanel.Dock="Bottom" Height="10" Margin="0,10" ClipToBounds="False" />
+                                    <TextBlock Text="MONACA - 意味/無" FontSize="14" DockPanel.Dock="Left" VerticalAlignment="Center" />
+                                    <TextBlock Text="01:20 / 02:39" FontSize="12" DockPanel.Dock="Right" VerticalAlignment="Center" />
                                     <Border />
                                 </DockPanel>
                                 <Border />
                             </DockPanel>
-                            <DockPanel>
+                            <DockPanel LastChildFill="False">
                                 <Border Width="250">
-                                    <ScrollViewer>
-                                        <ItemsControl>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">The Chainsmokers、Illenium、Lennon Stella - Takeaway</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Alan Walker、A$AP Rocky - Live Fast</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Ariana Grande、Social House - boyfriend</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Martin Garrix、JRM - These Are The Times</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Taylor Swift - The Archer</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Alec Benjamin - Jesus In LA</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Katy Perry - Small Talk</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Trivecta、Amidy、RØRY - Riptide</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Alan Walker、A$AP Rocky - Live Fast (Remix)</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">YBN Cordae、Ty Dolla $ign - Way Back Home (Explicit)</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Peppa Pig - Balloon Ride</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Gryffin、Carly Rae Jepsen - OMG</TextBlock>
-                                            </Button>
-                                            <Button >
-                                                <TextBlock FontSize="12" Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType={x:Type Button}}}" ToolTip="{Binding Text, RelativeSource={RelativeSource Mode=Self}}">Lana Del Rey - Looking For America</TextBlock>
-                                            </Button>
-                                        </ItemsControl>
-                                    </ScrollViewer>
+                                    <ListBox SelectionMode="Multiple" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 意味/無</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 遺サレタ場所/斜光</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 穏ヤカナ眠リ</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 砂塵ノ記憶</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 生マレ出ヅル意思</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 沈痛ノ色</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 遊園施設</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 美シキ歌</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 還ラナイ声/ギター</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - オバアチャン/破壊</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 澱ンダ祈リ/暁風</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - エミール/ショップ</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 大切ナ時間</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 曖昧ナ希望/氷雨</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - Weight of the World (English Version)</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 遺サレタ場所/遮光</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 異形ノ末路</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 還ラナイ声/通常</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - パスカル</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 森ノ王国</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 全テヲ破壊スル黒キ巨人/怪獣</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 複製サレタ街</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 愚カシイ兵器:乙:甲</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 取リ憑イタ業病</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 割レタ心</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 愚カシイ兵器:丙</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 追悼</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 依存スル弱者</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">河野マリナ - Weight of the World/壊レタ世界ノ歌</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 再生ト希望</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 戦争ト戦争</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 崩壊ノ虚妄</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 茫洋タル病</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 偽リノ城塞</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 曖昧ナ希望/翠雨</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - イニシエノウタ/贖罪</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 幸セナ死</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - エミール/絶望</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 澱ンダ祈リ/星空</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 顕現シタ異物</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 「塔」</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 双極ノ悪夢</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 終ワリノ音</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - Weight of the World (Nouveau-FR Version)</ListBoxItem>
+                                        <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - Weight of the World/the End of YoRHa</ListBoxItem>
+                                    </ListBox>
                                 </Border>
-                                <Border />
+                                <Border Width="250" DockPanel.Dock="Right">
+                                    <ListView>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 意味/無" />
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 遺サレタ場所/斜光" />
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 穏ヤカナ眠リ"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 砂塵ノ記憶"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 生マレ出ヅル意思"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 沈痛ノ色"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 遊園施設"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 美シキ歌"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 還ラナイ声/ギター"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - オバアチャン/破壊"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 澱ンダ祈リ/暁風"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - エミール/ショップ"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 大切ナ時間"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 曖昧ナ希望/氷雨"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - Weight of the World (English Version)"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 遺サレタ場所/遮光"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 異形ノ末路"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 還ラナイ声/通常"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - パスカル"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 森ノ王国"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 全テヲ破壊スル黒キ巨人/怪獣"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 複製サレタ街"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 愚カシイ兵器:乙:甲"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 取リ憑イタ業病"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 割レタ心"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 愚カシイ兵器:丙"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 追悼"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 依存スル弱者"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="河野マリナ - Weight of the World/壊レタ世界ノ歌"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 再生ト希望"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 戦争ト戦争"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 崩壊ノ虚妄"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 茫洋タル病"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 偽リノ城塞"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 曖昧ナ希望/翠雨"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - イニシエノウタ/贖罪"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 幸セナ死"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - エミール/絶望"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 澱ンダ祈リ/星空"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 顕現シタ異物"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 「塔」"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 双極ノ悪夢"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - 終ワリノ音"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - Weight of the World (Nouveau-FR Version)"/>
+                                        <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - Weight of the World/the End of YoRHa"/>
+                                    </ListView>
+                                </Border>
                             </DockPanel>
                         </DockPanel>
                     </Border>

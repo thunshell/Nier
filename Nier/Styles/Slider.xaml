@@ -7,13 +7,13 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush4}"/>
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush5}"/>
             </Trigger>
             <Trigger Property="IsDragging" Value="true">
-                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush4}"/>
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush5}"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush3}"/>
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush4}"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -34,13 +34,13 @@
                 </Border>
                 <Track x:Name="PART_Track" Grid.Row="1">
                     <Track.DecreaseRepeatButton>
-                        <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource RepeatButtonTransparent}" Background="{DynamicResource Brush3}"/>
+                        <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource RepeatButtonTransparent}" Background="{DynamicResource Brush4}"/>
                     </Track.DecreaseRepeatButton>
                     <Track.IncreaseRepeatButton>
                         <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource RepeatButtonTransparent}"/>
                     </Track.IncreaseRepeatButton>
                     <Track.Thumb>
-                        <Thumb x:Name="Thumb" Background="{DynamicResource Brush3}" Height="{TemplateBinding Height}" Width="{TemplateBinding Height}" Focusable="False" OverridesDefaultStyle="True" Template="{StaticResource SliderThumbHorizontalDefault}" VerticalAlignment="Center"/>
+                        <Thumb x:Name="Thumb" Background="{DynamicResource Brush4}" Height="{TemplateBinding Height}" Width="{TemplateBinding Height}" Focusable="False" OverridesDefaultStyle="True" Template="{StaticResource SliderThumbHorizontalDefault}" VerticalAlignment="Center"/>
                     </Track.Thumb>
                 </Track>
             </Grid>
@@ -63,13 +63,13 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush4}"/>
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush5}"/>
             </Trigger>
             <Trigger Property="IsDragging" Value="true">
-                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush4}"/>
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush5}"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush3}"/>
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource Brush4}"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -90,13 +90,13 @@
                 </Border>
                 <Track x:Name="PART_Track" Grid.Column="1">
                     <Track.DecreaseRepeatButton>
-                        <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource RepeatButtonTransparent}" Background="{DynamicResource Brush3}"/>
+                        <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource RepeatButtonTransparent}" Background="{DynamicResource Brush4}"/>
                     </Track.DecreaseRepeatButton>
                     <Track.IncreaseRepeatButton>
                         <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource RepeatButtonTransparent}"/>
                     </Track.IncreaseRepeatButton>
                     <Track.Thumb>
-                        <Thumb x:Name="Thumb" Focusable="False" Height="{TemplateBinding Width}" Background="{DynamicResource Brush3}" OverridesDefaultStyle="True" Template="{StaticResource SliderThumbVerticalDefault}" VerticalAlignment="Top" Width="{TemplateBinding Width}"/>
+                        <Thumb x:Name="Thumb" Focusable="False" Height="{TemplateBinding Width}" Background="{DynamicResource Brush4}" OverridesDefaultStyle="True" Template="{StaticResource SliderThumbVerticalDefault}" VerticalAlignment="Top" Width="{TemplateBinding Width}"/>
                     </Track.Thumb>
                 </Track>
             </Grid>
@@ -117,6 +117,7 @@
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Foreground" Value="{DynamicResource Brush3}"/>
         <Setter Property="Template" Value="{StaticResource SliderHorizontal}"/>
         <Style.Triggers>
@@ -124,24 +125,5 @@
                 <Setter Property="Template" Value="{StaticResource SliderVertical}"/>
             </Trigger>
         </Style.Triggers>
-    </Style>
-
-    <Style TargetType="{x:Type ToolTip}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ToolTip}">
-                    <ContentPresenter x:Name="contentPresenter" />
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="ContentTemplate">
-            <Setter.Value>
-                <DataTemplate>
-                    <Grid Background="{DynamicResource Brush4}">
-                        <TextBlock Text="{TemplateBinding Content}" Foreground="{DynamicResource Brush0}" FontSize="12" />
-                    </Grid>
-                </DataTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 </ResourceDictionary>

@@ -252,7 +252,7 @@
                                 </DockPanel>
                                 <Border />
                             </DockPanel>
-                            <DockPanel LastChildFill="False">
+                            <DockPanel LastChildFill="True">
                                 <Border Width="250">
                                     <ListBox SelectionMode="Multiple" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                                         <ListBoxItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}">MONACA - 意味/無</ListBoxItem>
@@ -351,6 +351,36 @@
                                         <ListViewItem ToolTip="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" Content="MONACA - Weight of the World/the End of YoRHa"/>
                                     </ListView>
                                 </Border>
+                                <Grid>
+                                    <!--<Image Source="https://p0.ssl.qhimg.com/t01479dcca51189a943.jpg" />-->
+                                    <ItemsControl Height="200" x:Name="BuffersView" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <DockPanel LastChildFill="False" HorizontalAlignment="Center" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Height="{Binding}" Width="10" VerticalAlignment="Bottom" Background="{StaticResource Brush4}" BorderThickness="1" BorderBrush="{StaticResource Brush0}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <ItemsControl Width="500" Height="200" x:Name="PixCanvas" VerticalAlignment="Top">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <Grid />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Canvas Width="500" Height="200">
+                                                    <Border Canvas.Top="{Binding Y}" Canvas.Left="{Binding X}" Width="10" Height="10" 
+                                                        VerticalAlignment="Bottom" Background="{StaticResource Brush4}" BorderThickness="1" BorderBrush="{StaticResource Brush0}" />
+                                                </Canvas>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Grid>
                             </DockPanel>
                         </DockPanel>
                     </Border>
